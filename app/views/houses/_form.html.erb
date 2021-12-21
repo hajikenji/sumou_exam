@@ -30,10 +30,6 @@
     <%= form.text_area :remarks %>
   </div>
   <div class="actions">
-    <% if action_name == "new" %>
-      <%= form.submit "登録する" %>
-    <% elsif action_name == "edit" %>
-      <%= form.submit "編集する" %>
-    <% end %>
+    <%= form.submit @button_display %>
   </div>
 <% end %>
