@@ -2,7 +2,6 @@
   <% if house.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(house.errors.count, "error") %> prohibited this house from being saved:</h2>
-
       <ul>
         <% house.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,28 +9,31 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :物件名 %>
     <%= form.text_field :name %>
   </div>
-
   <div class="field">
-    <%= form.label :rent %>
+    <%= form.label :賃料 %>
     <%= form.number_field :rent %>
   </div>
-
   <div class="field">
-    <%= form.label :residence %>
+    <%= form.label :住所 %>
     <%= form.text_field :residence %>
   </div>
-
   <div class="field">
-    <%= form.label :ramarks %>
-    <%= form.text_area :ramarks %>
+    <%= form.label :築年数 %>
+    <%= form.text_area :built %>
   </div>
-
+  <div class="field">
+    <%= form.label :備考 %>
+    <%= form.text_area :remarks %>
+  </div>
   <div class="actions">
-    <%= form.submit %>
+    <% if action_name == "new" %>
+      <%= form.submit "登録する" %>
+    <% elsif action_name == "edit" %>
+      <%= form.submit "編集する" %>
+    <% end %>
   </div>
 <% end %>

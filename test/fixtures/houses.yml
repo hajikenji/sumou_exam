@@ -4,10 +4,10 @@ one:
   name: MyString
   rent: 1
   residence: MyString
-  ramarks: MyText
+  remarks: MyText
 
 two:
   name: MyString
   rent: 1
   residence: MyString
-  ramarks: MyText
+  remarks: MyText
