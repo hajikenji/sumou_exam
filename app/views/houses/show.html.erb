@@ -19,5 +19,9 @@
   <strong>備考:</strong>
   <%= @house.remarks %>
 </p>
+<p>
+  <strong>最寄り駅１</strong>
+  <%= @house.near_stations[0][:station] %>
+</p>
 <%= link_to '編集', edit_house_path(@house) %> |
 <%= link_to '戻る', houses_path %>

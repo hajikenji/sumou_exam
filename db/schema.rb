@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_21_051521) do
+ActiveRecord::Schema.define(version: 2021_12_21_080303) do
 
   create_table "houses", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 2021_12_21_051521) do
     t.string "station"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "house_id"
+    t.index ["house_id"], name: "index_near_stations_on_house_id"
   end
 
+  add_foreign_key "near_stations", "houses"
 end
