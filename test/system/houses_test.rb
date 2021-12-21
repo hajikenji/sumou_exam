@@ -15,7 +15,7 @@ class HousesTest < ApplicationSystemTestCase
     click_on "New House"
 
     fill_in "Name", with: @house.name
-    fill_in "Ramarks", with: @house.ramarks
+    fill_in "remarks", with: @house.remarks
     fill_in "Rent", with: @house.rent
     fill_in "Residence", with: @house.residence
     click_on "Create House"
@@ -29,7 +29,7 @@ class HousesTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Name", with: @house.name
-    fill_in "Ramarks", with: @house.ramarks
+    fill_in "remarks", with: @house.remarks
     fill_in "Rent", with: @house.rent
     fill_in "Residence", with: @house.residence
     click_on "Update House"

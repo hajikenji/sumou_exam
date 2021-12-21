@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_20_161004) do
+ActiveRecord::Schema.define(version: 2021_12_21_051521) do
 
   create_table "houses", force: :cascade do |t|
     t.string "name"
     t.integer "rent"
     t.string "residence"
-    t.text "ramarks"
+    t.text "remarks"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "built"
   end
 
   create_table "near_stations", force: :cascade do |t|
