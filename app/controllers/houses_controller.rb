@@ -12,8 +12,9 @@ class HousesController < ApplicationController
 
   # GET /houses/new
   def new
-    @house = House.new
     @button_display = "登録する" 
+    @house = House.new
+    @house.near_stations.build
   end
 
   # GET /houses/1/edit
@@ -24,9 +25,13 @@ class HousesController < ApplicationController
   # POST /houses or /houses.json
   def create
     @house = House.new(house_params)
+    # @stations = @house.near_stations.build(house_params[:near_stations_attributes]['0'])
+    
 
     respond_to do |format|
       if @house.save
+        # @stations.save
+        
         format.html { redirect_to @house, notice: "House was successfully created." }
         format.json { render :show, status: :created, location: @house }
       else
@@ -44,7 +49,7 @@ class HousesController < ApplicationController
         format.html { redirect_to @house, notice: "House was successfully updated." }
         format.json { render :show, status: :ok, location: @house }
       else
-        @button_display = "編集する"
+        @button_display = '編集する'
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @house.errors, status: :unprocessable_entity }
       end
@@ -68,6 +73,6 @@ class HousesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def house_params
-      params.require(:house).permit(:name, :rent, :residence, :built, :remarks)
+      params.require(:house).permit(:name, :rent, :residence, :built, :remarks, near_stations_attributes: [:station])
     end
 end

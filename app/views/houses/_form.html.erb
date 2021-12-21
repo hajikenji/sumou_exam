@@ -29,6 +29,13 @@
     <%= form.label :備考 %>
     <%= form.text_area :remarks %>
   </div>
+  <div class="station">
+    <%= form.fields_for :near_stations do |s| %>
+      <%= s.label :station, "最寄駅" %>
+      <%= s.text_field :station %>
+    <% end %>
+  </div>
+  <br>
   <div class="actions">
     <%= form.submit @button_display %>
   </div>
