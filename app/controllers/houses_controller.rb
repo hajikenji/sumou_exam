@@ -13,10 +13,12 @@ class HousesController < ApplicationController
   # GET /houses/new
   def new
     @house = House.new
+    @button_display = "登録する" 
   end
 
   # GET /houses/1/edit
   def edit
+    @button_display = "編集する"
   end
 
   # POST /houses or /houses.json
@@ -28,6 +30,7 @@ class HousesController < ApplicationController
         format.html { redirect_to @house, notice: "House was successfully created." }
         format.json { render :show, status: :created, location: @house }
       else
+        @button_display = '登録する'
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @house.errors, status: :unprocessable_entity }
       end
@@ -41,6 +44,7 @@ class HousesController < ApplicationController
         format.html { redirect_to @house, notice: "House was successfully updated." }
         format.json { render :show, status: :ok, location: @house }
       else
+        @button_display = "編集する"
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @house.errors, status: :unprocessable_entity }
       end
