@@ -8,20 +8,27 @@ class HousesController < ApplicationController
 
   # GET /houses/1 or /houses/1.json
   def show
+    @array = - 1
+    @station_number = 1
   end
 
   # GET /houses/new
   def new
     @button_display = "登録する" 
     @house = House.new
-    @stations = @house.near_stations.build
+    @house.near_stations.build
     
   end
 
   # GET /houses/1/edit
   def edit
     @button_display = "編集する"
+    @house.near_stations.build
+    @add_station = @house.near_stations.size - 1
+    
     @num = 0
+    @array = -1
+    
   
   end
 
@@ -47,6 +54,7 @@ class HousesController < ApplicationController
 
   # PATCH/PUT /houses/1 or /houses/1.json
   def update
+    
     respond_to do |format|
       if @house.update(house_params)
         
